@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: recruitin-labour-intel-api
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install --break-system-packages -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
+      - key: DEBUG
+        value: false
